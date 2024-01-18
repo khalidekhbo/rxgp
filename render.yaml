@@ -1,6 +1,7 @@
 services:
-  - name: http-server
-    env:
-      - key: RCLONE_CONFIG_URL
-        from_secret: GIST_URL_SECRET
-    dockerfile: Dockerfile
+- type: web
+  name: http-server
+  env:
+    - key: RCLONE_CONFIG
+      scope: private
+  start_command: python serve.py
