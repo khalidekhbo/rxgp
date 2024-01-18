@@ -1,0 +1,6 @@
+services:
+  - name: http-server
+    env:
+      - key: RCLONE_CONFIG_URL
+        from_secret: GIST_URL_SECRET
+    dockerfile: Dockerfile
