@@ -1,5 +1,6 @@
 services:
-- type: web
-  name: http-server
-  build_command: python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt
-  start_command: python serve.py
+  - type: web
+    name: http-server
+    env: {}
+    build_command: docker build -t my-http-server .
+    start_command: docker run -p 8000:8000 -e RCLONE_CONFIG="<Paste your rclone.conf content here>" my-http-server
