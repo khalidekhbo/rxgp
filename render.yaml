@@ -1,7 +1,5 @@
 services:
 - type: web
   name: http-server
-  env:
-    - key: RCLONE_CONFIG
-      scope: private
+  build_command: python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt
   start_command: python serve.py
