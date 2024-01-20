@@ -2,4 +2,4 @@ services:
   - type: web
     name: your-web-service
     buildCommand: "docker build -t your-web-service ."
-    startCommand: "docker run -e RCLONE_CONF_URL=$RCLONE_CONF_URL -p 8080:8080 your-web-service"
+    startCommand: "docker run -e RCLONE_CONF_URL=$RCLONE_CONF_URL -p 8080:8080 -p 8081:8081 your-web-service"
