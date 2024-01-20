@@ -1,6 +1,5 @@
 services:
   - type: web
-    name: http-server
-    env: {}
-    build_command: docker build -t my-http-server .
-    start_command: docker run -p 8000:8000 -e RCLONE_CONFIG="<Paste your rclone.conf content here>" my-http-server
+    name: your-web-service
+    buildCommand: "docker build -t your-web-service ."
+    startCommand: "docker run -e RCLONE_CONF_URL=$RCLONE_CONF_URL -p 8080:8080 your-web-service"
