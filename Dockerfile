@@ -1,10 +1,10 @@
-FROM python:3.9-slim
+FROM rclone/rclone:latest
 
+# Set the working directory
 WORKDIR /app
 
-COPY serve.py .
-COPY render.yaml .
+# Copy the script that fetches rclone.conf from the environment variable and creates the config file
+COPY fetch-config.sh .
 
-RUN pip install gunicorn
-
-CMD ["gunicorn", "serve:app", "--bind", "0.0.0.0:8000"]
+# Set the entry point
+ENTRYPOINT ["./fetch-config.sh"]
